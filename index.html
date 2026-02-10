@@ -1,0 +1,1037 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="OmniText is a training-free generalist capable of tackling diverse text image manipulation tasks (e.g., text editing)."
+    />
+    <meta
+      name="keywords"
+      content="OmniText, text editing, text image manipulation, ICLR 2026"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      property="og:title"
+      content="OmniText: A Training-Free Generalist for Controllable Text-Image Manipulation"
+    />
+    <meta
+      property="og:description"
+      content="We introduce OmniText, a training-free generalist method for diverse text image manipulation tasks."
+    />
+    <meta property="og:image" content="./static/images/teaser.png" />
+    <meta property="og:image:alt" content="OmniText capability" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OmniText Project Page" />
+    <meta
+      name="twitter:description"
+      content="A Training-Free Generalist for Controllable Text-Image Manipulation"
+    />
+    <meta name="twitter:image" content="./static/images/teaser.png" />
+
+    <title>OmniText Project Page</title>
+
+    <link rel="icon" href="./static/icon.svg" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="./static/css/index.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./static/js/index.js"></script>
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center">
+          <a class="navbar-item" href="https://kaist-viclab.github.io/">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> More Research </a>
+            <div class="navbar-dropdown">
+              <a
+                class="navbar-item"
+                href="https://kaist-viclab.github.io/old-photo-modernization/"
+              >
+                OldPhotoModernization
+              </a>
+              <a
+                class="navbar-item"
+                href="https://kaist-viclab.github.io/primedit-site/"
+              >
+                PRIMEdit
+              </a>
+              <a
+                class="navbar-item"
+                href="https://kaist-viclab.github.io/omnitext-site"
+              >
+                OmniText
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                OmniText: A Training-Free Generalists for Controllable
+                Text-Image Manipulation
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://agusgun.github.io">Agus Gunawan</a
+                  ><sup>1*</sup>,</span
+                >
+                <span class="author-block"> Samuel Teodoro<sup>1*</sup>,</span>
+                <span class="author-block"> Yun Chen<sup>1</sup>, </span>
+                <span class="author-block">
+                  <a href="https://sites.google.com/view/sooyekim">Soo Ye Kim</a
+                  ><sup>2</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://sites.google.com/view/ozbro">Jihyong Oh</a
+                  ><sup>3†</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="http://viclab.kaist.ac.kr/">Munchurl Kim</a
+                  ><sup>1†</sup>,
+                </span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>KAIST,</span>
+                <span class="author-block"><sup>2</sup>Adobe Research,</span>
+                <span class="author-block"
+                  ><sup>3</sup>Chung-Ang University</span
+                >
+              </div>
+
+              <div class="is-size-6 publication-authors">
+                <span class="author-block"
+                  ><sup>*</sup>Equal contribution, <sup>†</sup>Co-corresponding
+                  authors</span
+                >
+              </div>
+              <div class="is-size-5 publication-authors">
+                <br />
+                <span class="author-block" style="color: blue"
+                  ><b>ICLR 2026</b></span
+                >
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a
+                      href="https://openreview.net/forum?id=zF7GyVXVw6"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a
+                      href="https://arxiv.org/pdf/2510.24093"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                  <!-- Code Link. -->
+                  <span class="link-block">
+                    <a
+                      href="https://github.com/KAIST-VICLab/OmniText"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                  <!-- Dataset Link. -->
+                  <span class="link-block">
+                    <a
+                      href="https://drive.google.com/file/d/16J8wyhpGcFnYwZLWa_01DLUOczIKgHVy/view"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="far fa-images"></i>
+                      </span>
+                      <span>Data</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img src="./static/images/teaser.png" />
+          <h2 class="subtitle has-text-centered">
+            OmniText is a training-free generalist capable of tackling diverse
+            text image manipulation tasks.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-light is-small">
+      <div class="hero-body">
+        <!-- <div class="container">TODO: demo</div> -->
+        <div class="container is-max-desktop" id="demo">
+          <div class="columns is-centered">
+            <div class="column is-10">
+              <div class="box">
+                <h2
+                  class="title is-4 has-text-centered"
+                  style="margin-bottom: 0.75rem"
+                >
+                  Demo: OmniText in OmniText-Bench
+                </h2>
+                <p class="has-text-centered" style="margin-bottom: 1.25rem">
+                  Select an application and a sample, then compare
+                  <b>Input+Mask</b> vs <b>OmniText Output</b>.
+                </p>
+
+                <!-- Controls -->
+                <div
+                  class="columns is-variable is-3"
+                  style="margin-bottom: 1rem"
+                >
+                  <div class="column">
+                    <label class="label">Application</label>
+                    <div class="select is-fullwidth">
+                      <select id="demoApplication">
+                        <option value="Editing-Ref1">Editing</option>
+                        <option value="Editing-Ref2">
+                          Style-based Editing
+                        </option>
+                        <option value="Insertion-Ref1">Insertion</option>
+                        <option value="Insertion-Ref2">
+                          Style-based Insertion
+                        </option>
+                        <option value="Removal">Removal</option>
+                        <option value="Repositioning">Repositioning</option>
+                        <option value="Rescaling">Rescaling</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="column">
+                    <label class="label">File</label>
+                    <div class="select is-fullwidth">
+                      <select id="demoFile"></select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slider Title -->
+                <div style="margin-bottom: 0.5rem">
+                  <div
+                    class="is-size-6 has-text-weight-semibold"
+                    id="demoHeading"
+                  >
+                    <!-- filled by JS -->
+                  </div>
+                  <div
+                    class="is-size-7"
+                    id="demoTargetText"
+                    style="opacity: 0.85"
+                  >
+                    <!-- filled by JS -->
+                  </div>
+
+                  <!-- Reference image (only shown for style-based apps) -->
+                  <div
+                    id="demoRefWrap"
+                    style="display: none; margin-top: 0.5rem"
+                  >
+                    <div
+                      class="is-size-7"
+                      style="opacity: 0.85; margin-bottom: 0.25rem"
+                    >
+                      Reference (cropped)
+                    </div>
+
+                    <img
+                      id="demoRefImg"
+                      alt="Reference (cropped)"
+                      draggable="false"
+                      loading="lazy"
+                      style="
+                        width: 256px;
+                        height: 64px;
+                        object-fit: contain;
+                        object-position: center;
+                        border-radius: 10px;
+                        border: 1px solid rgba(0, 0, 0, 0.12);
+                        background: #111;
+                      "
+                    />
+                  </div>
+                </div>
+
+                <!-- Compare Slider -->
+                <div
+                  class="ot-compare"
+                  id="otCompare"
+                  aria-label="Image comparison slider"
+                >
+                  <div class="ot-compare__frame" style="cursor: grab">
+                    <!-- RIGHT: Edited Result -->
+                    <img
+                      id="imgRight"
+                      class="ot-compare__img"
+                      draggable="false"
+                      alt="Edited result"
+                      loading="lazy"
+                    />
+
+                    <!-- LEFT: Input + Mask overlay in ONE composite layer -->
+                    <div id="leftClip" class="ot-compare__left">
+                      <div class="ot-compare__stack">
+                        <img
+                          id="imgInput"
+                          class="ot-compare__img"
+                          draggable="false"
+                          alt="Input image"
+                          loading="lazy"
+                        />
+                        <img
+                          id="imgMask"
+                          class="ot-compare__img ot-compare__mask"
+                          draggable="false"
+                          alt="Target mask overlay"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Divider handle -->
+                    <div
+                      id="divider"
+                      class="ot-compare__divider"
+                      aria-hidden="true"
+                    >
+                      <div class="ot-compare__handle" aria-hidden="true"></div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="columns is-mobile is-variable is-1"
+                    style="margin-top: 0.5rem"
+                  >
+                    <div
+                      class="column has-text-left is-size-7"
+                      style="opacity: 0.85"
+                    >
+                      Left: Input + Target Mask
+                    </div>
+                    <div
+                      class="column has-text-right is-size-7"
+                      style="opacity: 0.85"
+                    >
+                      Right: Edited Result
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Recent advancements in diffusion-based text synthesis have
+                demonstrated significant performance in inserting and editing
+                text within images via inpainting. However, despite the
+                potential of text inpainting methods,
+                <b>three key limitations</b> hinder their applicability to
+                broader Text Image Manipulation (TIM) tasks: (i)
+                <b>the inability to remove text</b>, (ii)
+                <b>the lack of control over the style of rendered text</b>, and
+                (iii) <b>a tendency to generate duplicated letters</b>.
+              </p>
+
+              <p>
+                To address these challenges, we propose <b>OmniText</b>, a
+                training-free generalist
+                <b>capable of performing a wide range of TIM tasks</b>.
+                Specifically, we investigate two key properties of cross- and
+                self-attention mechanisms to enable text removal and to provide
+                control over both text styles and content. Our findings reveal
+                that <b>text removal</b> can be achieved by applying
+                <b>self-attention inversion</b>, which mitigates the model's
+                tendency to focus on surrounding text, thus reducing text
+                hallucinations. Additionally, we
+                <b>redistribute cross-attention</b>, as increasing the
+                probability of certain text tokens reduces text hallucination.
+                For <b>controllable inpainting</b>, we introduce
+                <b>novel loss functions in a latent optimization framework</b>:
+                a <b>cross-attention content loss</b> to improve text rendering
+                accuracy and a <b>self-attention style loss</b> to facilitate
+                style customization.
+              </p>
+              <p>
+                Furthermore, we present <b>OmniText-Bench</b>, a
+                <b>benchmark dataset for evaluating diverse TIM tasks</b>. It
+                includes input images, target text with masks, and style
+                references, covering diverse applications such as text removal,
+                rescaling, repositioning, and text insertion and editing with
+                various styles.
+              </p>
+              <p>
+                Our <b>OmniText</b> framework is
+                <b
+                  >the first generalist method capable of performing diverse TIM
+                  tasks</b
+                >. It achieves state-of-the-art performance across multiple
+                tasks and metrics compared to other text inpainting methods and
+                is comparable to specialist methods.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                  <h2 class="title is-3">Key Ideas</h2>
+                  <div class="content has-text-justified">
+                    <h3 class="title has-text-centered is-5">
+                      1) Observations of Text Generation Model
+                    </h3>
+                    <img src="./static/images/method_1_observation.png" />
+                    <ul>
+                      <li>
+                        <b>During text generation</b>: Self-attention influences
+                        style and cross-attention controls content alignment
+                      </li>
+                      <li>
+                        <b>During text removal</b>: Strong self-attention
+                        responses to surrounding text in early sampling cause
+                        text-like hallucinations, and redistributing
+                        cross-attention helps to reduce hallucination
+                      </li>
+                    </ul>
+
+                    <h3 class="title has-text-centered is-5">
+                      2) OmniText Framework
+                    </h3>
+                    <img src="./static/images/method_2_framework.png" />
+                    <ul>
+                      <li>
+                        <b>Text Removal</b>: Self-attention inversion and
+                        cross-attention reassignment to suppress the backbone's
+                        text generation ability
+                      </li>
+                      <li>
+                        <b>Controllable Inpainting</b>: A latent optimization
+                        framework guided by cross-attention content loss to
+                        control content and self-attention style loss to control
+                        style
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                  <h2 class="title is-3">Benchmark Dataset: OmniText-Bench</h2>
+                  <span class="link-block">
+                    <a
+                      href="https://drive.google.com/file/d/16J8wyhpGcFnYwZLWa_01DLUOczIKgHVy/view"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fa fa-download"></i>
+                      </span>
+                      <span>Download</span>
+                    </a>
+                  </span>
+                  <img src="./static/images/omnitext_bench_1.png" />
+                  <img src="./static/images/omnitext_bench_2.png" />
+                  <div class="has-text-justified">
+                    A mockup-based evaluation dataset consisting of 150 sets of
+                    input images, target texts with masks, reference images, and
+                    ground-truth, covering five distinct applications
+                  </div>
+                </div>
+              </div>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                  <h2 class="title is-3">Results</h2>
+                  <h3 class="title is-4">Quantitative</h3>
+                  <div class="has-text-justified">
+                    Text removal (SCUT-EnsText) and text editing (ScenePair)
+                    benchmarks
+                  </div>
+                  <img src="./static/images/quantitative_removal.png" />
+                  <img src="./static/images/quantitative_editing.png" />
+
+                  <h3 class="title is-4">Qualitative</h3>
+                  <div class="has-text-justified">
+                    Standard application (removal and editing) and additional
+                    applications (rescaling, repositioning, and style-based
+                    insertion and editing)
+                  </div>
+                  <img src="./static/images/qualitative_standard.png" />
+                  <img src="./static/images/qualitative_additional.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@inproceedings{
+    title={OmniText: A Training-Free Generalist for Controllable Text-Image Manipulation},
+    author={Gunawan, Agus and Teodoro, Samuel and Chen, Yun and Kim, Soo Ye and Oh, Jihyong and Kim, Munchurl},
+    booktitle={The Fourteenth International Conference on Learning Representations},
+    year={2026},
+    url={https://openreview.net/forum?id=zF7GyVXVw6}
+}</code></pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This website is licensed under a
+                <a
+                  rel="license"
+                  href="http://creativecommons.org/licenses/by-sa/4.0/"
+                  >Creative Commons Attribution-ShareAlike 4.0 International
+                  License</a
+                >.
+              </p>
+              <p>
+                Website template adapted from
+                <a href="https://github.com/nerfies/nerfies.github.io"
+                  >Nerfies</a
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <style>
+      /* --- OmniText compare slider (no external deps) --- */
+      .ot-compare {
+        width: 100%;
+        user-select: none;
+      }
+
+      .ot-compare__frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #111;
+        overflow: hidden;
+        border-radius: 12px;
+        cursor: ew-resize;
+
+        /* critical for smooth touch dragging */
+        touch-action: none;
+
+        /* hint GPU / browser */
+        will-change: transform;
+      }
+      .ot-compare__frame.is-dragging {
+        cursor: grabbing;
+      }
+
+      .ot-compare__img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: #111;
+      }
+
+      .ot-compare__left {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+
+        /* Use clip-path driven by CSS var for smoothness */
+        clip-path: polygon(
+          0 0,
+          var(--pos, 50%) 0,
+          var(--pos, 50%) 100%,
+          0 100%
+        );
+        will-change: clip-path;
+      }
+
+      .ot-compare__stack {
+        position: absolute;
+        inset: 0;
+      }
+
+      .ot-compare__mask {
+        opacity: 0.55;
+        mix-blend-mode: screen;
+        filter: contrast(1.2) saturate(1.2) hue-rotate(95deg);
+        pointer-events: none;
+      }
+
+      .ot-compare__divider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+
+        /* divider position driven by CSS var */
+        left: var(--pos, 50%);
+        width: 0;
+        pointer-events: none;
+        will-change: left;
+      }
+
+      .ot-compare__divider::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -1px;
+        width: 2px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+      }
+
+      .ot-compare__handle {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-50%, -50%);
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      }
+
+      .ot-compare__handle::before,
+      .ot-compare__handle::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 6px;
+        height: 6px;
+        border: 2px solid rgba(0, 0, 0, 0.65);
+        border-top: 0;
+        border-right: 0;
+        transform: translateY(-50%) rotate(45deg);
+        opacity: 0.75;
+      }
+      .ot-compare__handle::before {
+        left: 7px;
+      }
+      .ot-compare__handle::after {
+        right: 7px;
+        transform: translateY(-50%) rotate(225deg);
+      }
+    </style>
+    <script>
+      // ======= Config per spec =======
+      const INPUT_DIR = "./static/demo/input";
+      const LABEL_JSON = "./static/demo/labels.json";
+
+      // Application → choices for MASK_DIR / GT_DIR
+      // NOTE: Adjust GT folders if your repo uses different names.
+      const APP_CFG = {
+        "Editing-Ref1": {
+          maskDir: "./static/demo/mask/Editing/Ref1/TargetMask",
+          outDir: "./static/demo/output/Editing-Ref1",
+          labelPath: ["editing", "ref1", "text", "target"],
+          pretty: "Editing",
+        },
+        "Editing-Ref2": {
+          maskDir: "./static/demo/mask/Editing/Ref2/TargetMask",
+          outDir: "./static/demo/output/Editing-Ref2",
+          labelPath: ["editing", "ref2", "text", "target"],
+          pretty: "Style-based Editing",
+
+          refImgPath: (fileName) =>
+            `./static/demo/ref/Editing/Ref2/${fileName}`,
+        },
+        "Insertion-Ref1": {
+          maskDir: "./static/demo/mask/Insertion/Ref1/TargetMask",
+          outDir: "./static/demo/output/Insertion-Ref1",
+          labelPath: ["insertion", "ref1", "text"],
+          pretty: "Insertion",
+        },
+        "Insertion-Ref2": {
+          maskDir: "./static/demo/mask/Insertion/Ref2/TargetMask",
+          outDir: "./static/demo/output/Insertion-Ref2",
+          labelPath: ["insertion", "ref2", "text"],
+          pretty: "Style-based Insertion",
+
+          refImgPath: (fileName) =>
+            `./static/demo/ref/Insertion/Ref2/${fileName}`,
+        },
+        Removal: {
+          maskDir: "./static/demo/mask/Removal/RemovalMask",
+          outDir: "./static/demo/output/Removal",
+          labelPath: ["Removal"],
+          pretty: "Removal",
+        },
+        Repositioning: {
+          maskDir: "./static/demo/mask/Repositioning/TargetMask",
+          outDir: "./static/demo/output/Repositioning",
+          labelPath: ["repositioning", "text"],
+          pretty: "Repositioning",
+        },
+        Rescaling: {
+          maskDir: "./static/demo/mask/Rescaling/TargetMask",
+          outDir: "./static/demo/output/Rescaling",
+          labelPath: ["rescaling", "text"],
+          pretty: "Rescaling",
+        },
+      };
+
+      // ======= DOM =======
+      const elApp = document.getElementById("demoApplication");
+      const elFile = document.getElementById("demoFile");
+
+      const elHeading = document.getElementById("demoHeading");
+      const elTargetText = document.getElementById("demoTargetText");
+      const elRefWrap = document.getElementById("demoRefWrap");
+      const elRefImg = document.getElementById("demoRefImg");
+
+      const imgInput = document.getElementById("imgInput");
+      const imgMask = document.getElementById("imgMask");
+      const imgRight = document.getElementById("imgRight");
+
+      const range = document.getElementById("demoSlider");
+      const leftClip = document.getElementById("leftClip");
+      const divider = document.getElementById("divider");
+
+      // ======= Utils =======
+      function pad3(n) {
+        return String(n).padStart(3, "0");
+      }
+
+      function buildFallbackFileList() {
+        // Fallback: 001.png ... 150.png
+        const opts = [];
+        for (let i = 1; i <= 150; i++) opts.push(`${pad3(i)}.png`);
+        return opts;
+      }
+      async function loadFileListFromOutDir(outDir) {
+        // Expect: `${outDir}/files.json` contains array of filenames
+        // Example: ["000001.png","000002.png"] or ["001.png", ...]
+        const url = `${outDir}/files.json`;
+
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error(`files.json not found (${res.status})`);
+          const arr = await res.json();
+
+          if (!Array.isArray(arr))
+            throw new Error("files.json is not an array");
+
+          // Keep only typical image files; adjust if you also have .jpg
+          const files = arr
+            .filter((x) => typeof x === "string")
+            .filter((x) => /\.(png|jpg|jpeg|webp)$/i.test(x))
+            .sort();
+
+          if (files.length === 0)
+            throw new Error("files.json empty after filtering");
+
+          return files;
+        } catch (e) {
+          console.warn(`[Demo] Using fallback file list. Reason: ${e.message}`);
+          return buildFallbackFileList();
+        }
+      }
+
+      function setFileDropdown(files, preferredFile = null) {
+        elFile.innerHTML = files
+          .map((f) => `<option value="${f}">${f}</option>`)
+          .join("");
+
+        if (preferredFile && files.includes(preferredFile)) {
+          elFile.value = preferredFile;
+        } else {
+          elFile.value = files[0] ?? "";
+        }
+      }
+
+      // ======= Smooth slider state (rAF-driven) =======
+      const frame = document.querySelector("#otCompare .ot-compare__frame");
+
+      let sliderPct = 50; // 0..100
+      let pendingPct = null; // for rAF batching
+      let rafId = null;
+      let isDragging = false;
+
+      function applySlider(pct) {
+        const v = Math.max(0, Math.min(100, Number(pct)));
+        sliderPct = v;
+
+        // Single source of truth: CSS variable --pos (drives clip + divider)
+        frame.style.setProperty("--pos", v + "%");
+
+        // Keep range in sync (accessibility + keyboard control)
+        // range.value = String(Math.round(v));
+      }
+
+      function requestApply(pct) {
+        pendingPct = Number(pct);
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+          rafId = null;
+          if (pendingPct != null) applySlider(pendingPct);
+          pendingPct = null;
+        });
+      }
+
+      function pctFromClientX(clientX) {
+        const rect = frame.getBoundingClientRect();
+        const x = clientX - rect.left;
+        return (x / rect.width) * 100;
+      }
+
+      // Keep name for compatibility with the rest of your code
+      function setSlider(pct) {
+        requestApply(pct);
+      }
+
+      function getTargetText(labels, labelPath, fileName) {
+        // Spec says:
+        // TARGET_TEXT = LABEL_JSON["APPLICATION"][{APPLICATION}]["TARGET_TEXT"]
+        //
+        // In practice your labels.json may be structured differently.
+        // We try multiple fallbacks:
+        // 1) labels.APPLICATION[appKey][fileName].TARGET_TEXT
+        // 2) labels.APPLICATION[appKey][fileName].target_text
+        // 3) labels.APPLICATION[appKey][fileName]
+        // 4) labels.APPLICATION[appKey].TARGET_TEXT (global)
+        // 5) labels.APPLICATION[appKey].target_text
+        // 6) "—" if not found
+        try {
+          const lastDotIndex = fileName.lastIndexOf(".");
+          const fileId =
+            lastDotIndex > 0 ? fileName.substring(0, lastDotIndex) : fileName;
+          // 2) start from labels[fileId]
+          let node = labels?.[fileId].application;
+          if (!node) return "Target text: —";
+
+          // 3) walk labelPath array, e.g. ["editing","ref1","text","target"]
+          if (Array.isArray(labelPath)) {
+            for (const key of labelPath) {
+              if (node == null) break;
+              node = node[key];
+            }
+          }
+
+          if (node == null) return "Target text: —";
+
+          // 4) normalize node to a string
+          // - if it's already a string -> use it
+          // - if it's an object -> try common fields
+          if (typeof node === "string") return `Target text: ${node}`;
+
+          if (typeof node === "object") {
+            const t =
+              node.TARGET_TEXT ??
+              node.target_text ??
+              node.target ??
+              node.text ??
+              node.value;
+
+            if (typeof t === "string" && t.trim().length > 0) {
+              return `Target text: ${t}`;
+            }
+          }
+
+          return "Target text: —";
+        } catch (e) {
+          return "Target text: —";
+        }
+      }
+
+      async function loadLabels() {
+        const res = await fetch(LABEL_JSON, { cache: "no-store" });
+        if (!res.ok)
+          throw new Error(`Failed to load labels.json (${res.status})`);
+        return await res.json();
+      }
+
+      // ======= Main =======
+      let LABELS = null;
+
+      function updateImages() {
+        const appKey = elApp.value;
+        const fileName = elFile.value;
+        const cfg = APP_CFG[appKey];
+
+        // Left: Input + Mask overlay (composited)
+        imgInput.src = `${INPUT_DIR}/${fileName}`;
+        imgMask.src = `${cfg.maskDir}/${fileName}`;
+
+        // Right: Edited Result (Output)
+        imgRight.src = `${cfg.outDir}/${fileName}`;
+
+        // Heading + target text
+        elHeading.textContent = `Application: ${cfg.pretty} • File: ${fileName}`;
+        elTargetText.textContent = LABELS
+          ? getTargetText(LABELS, cfg.labelPath, fileName)
+          : "Target text: (loading labels.json...)";
+
+        if (cfg && typeof cfg.refImgPath === "function") {
+          elRefWrap.style.display = "block";
+          elRefImg.src = cfg.refImgPath(fileName);
+        } else {
+          elRefWrap.style.display = "none";
+          elRefImg.removeAttribute("src");
+        }
+      }
+
+      async function initFileDropdownForApp(appKey, preferredFile = null) {
+        const cfg = APP_CFG[appKey];
+        const files = await loadFileListFromOutDir(cfg.outDir);
+        setFileDropdown(files, preferredFile);
+      }
+
+      async function initDemo() {
+        await initFileDropdownForApp(elApp.value, "001.png");
+        setSlider(50);
+
+        // Load labels.json once
+        try {
+          LABELS = await loadLabels();
+        } catch (e) {
+          console.warn("[Demo] labels.json not loaded:", e);
+          LABELS = null;
+          elTargetText.textContent =
+            "Target text: (labels.json missing/unreadable)";
+        }
+
+        // Initial render
+        updateImages();
+
+        // Listeners
+        elApp.addEventListener("change", async () => {
+          // preserve current file if it exists in the new app
+          const prev = elFile.value;
+          await initFileDropdownForApp(elApp.value, prev);
+          updateImages();
+        });
+
+        elFile.addEventListener("change", updateImages);
+
+        // 1) Range input (keyboard / accessibility)
+        // range.addEventListener("input", (ev) => {
+        //   requestApply(ev.target.value);
+        // });
+
+        // 2) Direct manipulation (pointer drag)
+        frame.addEventListener("pointerdown", (ev) => {
+          isDragging = true;
+          frame.setPointerCapture(ev.pointerId);
+          frame.classList.add("is-dragging");
+
+          requestApply(pctFromClientX(ev.clientX));
+
+          const onMove = (e) => {
+            if (!isDragging) return;
+            requestApply(pctFromClientX(e.clientX));
+          };
+
+          const onUp = () => {
+            isDragging = false;
+            frame.classList.remove("is-dragging");
+            frame.removeEventListener("pointermove", onMove);
+            frame.removeEventListener("pointerup", onUp);
+            frame.removeEventListener("pointercancel", onUp);
+          };
+
+          frame.addEventListener("pointermove", onMove);
+          frame.addEventListener("pointerup", onUp);
+          frame.addEventListener("pointercancel", onUp);
+        });
+      }
+
+      // Kick off when DOM is ready
+      document.addEventListener("DOMContentLoaded", initDemo);
+    </script>
+  </body>
+</html>
